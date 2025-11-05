@@ -79,16 +79,6 @@
             transform: scale(1.03);
         }
 
-        .range-box {
-            margin-top: 30px;
-        }
-
-        .range-box input {
-            width: 60px;
-            padding: 8px;
-            font-size: 16px;
-        }
-
         .split-btn {
             margin-top: 30px;
             padding: 14px 50px;
@@ -105,7 +95,6 @@
             background: #27ae60;
             transform: scale(1.03);
         }
-
     </style>
 </head>
 <body>
@@ -121,7 +110,7 @@
 
     <div class="main">
         <h1>Split PDF</h1>
-        <p>Select a PDF and choose how you want to split it.</p>
+        <p>Select a PDF and split it into separate pages.</p>
 
         <form action="/split" method="post" enctype="multipart/form-data">
 
@@ -130,25 +119,12 @@
             </label>
             <input type="file" id="splitInput" name="pdf" style="display:none;" required>
 
-            <div class="range-box">
-                <h3>Split Options</h3>
-
-                <label>
-                    <input type="radio" name="split_type" value="all" checked>
-                    Split every page
-                </label>
-                <br><br>
-
-                <label>
-                    <input type="radio" name="split_type" value="range">
-                    Split page range:
-                </label>
-
-                <br><br>
-
-                <input type="number" name="start" min="1" placeholder="Start">
-                <input type="number" name="end" min="1" placeholder="End">
-            </div>
+            <br><br>
+            <h3>Split Options</h3>
+            <label>
+                <input type="radio" name="split_type" value="all" checked>
+                Split every page
+            </label>
 
             <button class="split-btn" type="submit">Split PDF</button>
         </form>
