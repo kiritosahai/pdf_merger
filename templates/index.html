@@ -2,23 +2,32 @@
 <html>
 <head>
     <title>pdf_merger</title>
+
+    <!-- ✅ Mobile scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-        body {
+
+        /* ✅ Prevent sideways movement */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
             margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', sans-serif;
             background: #f5f6fa;
         }
-        
-        /* NAVBAR */
+
+        /* ✅ NAVBAR (your requested version) */
         .navbar {
             width: 100%;
             height: 60px;
             background: white;
             display: flex;
             align-items: center;
-            padding: 0 40px;
+            padding: 0 20px;   /* ✅ YOUR REQUEST */
             border-bottom: 1px solid #ddd;
+            box-sizing: border-box;   /* ✅ Prevent overflow */
         }
 
         .logo {
@@ -32,11 +41,13 @@
         }
 
         .nav-links {
-            margin-left: 40px;
+            margin-left: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap; /* ✅ prevents overflow */
         }
 
         .nav-links a {
-            margin-right: 25px;
             text-decoration: none;
             font-size: 15px;
             color: #333;
@@ -47,9 +58,11 @@
             color: #e63946;
         }
 
+        /* ✅ MAIN SECTION */
         .main {
             text-align: center;
             margin-top: 80px;
+            padding: 0 15px;
         }
 
         .main h1 {
@@ -61,9 +74,9 @@
         .main p {
             font-size: 18px;
             color: #555;
-            margin-top: -10px;
         }
 
+        /* ✅ Select Files Button */
         .upload-btn {
             background: #e63946;
             color: white;
@@ -73,8 +86,9 @@
             border: none;
             cursor: pointer;
             margin-top: 40px;
+            transition: .2s;
             display: inline-block;
-            transition: 0.2s;
+            max-width: 100%;
         }
 
         .upload-btn:hover {
@@ -88,6 +102,7 @@
             font-size: 16px;
         }
 
+        /* ✅ Merge button */
         .merge-btn {
             margin-top: 30px;
             padding: 14px 50px;
@@ -97,118 +112,119 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: .2s;
+            max-width: 100%;
         }
 
         .merge-btn:hover {
             background: #27ae60;
             transform: scale(1.03);
         }
-        /* ✅ Mobile Layout Optimization */
-@media (max-width: 600px) {
 
-    .navbar {
-        padding: 0 15px;
-    }
+        /* ✅ MOBILE FIXES */
+        @media (max-width: 600px) {
 
-    .logo {
-        font-size: 20px;
-    }
+            .logo {
+                font-size: 20px;
+            }
 
-    .nav-links {
-        margin-left: 5px;
-    }
+            .nav-links {
+                margin-left: 10px;
+                gap: 8px;
+            }
 
-    .nav-links a {
-        font-size: 13px;
-        margin-right: 8px;
-    }
+            .nav-links a {
+                font-size: 12px;
+                margin: 0;
+            }
 
-    .main {
-        margin-top: 40px;
-        padding: 0 15px;
-    }
+            .main h1 {
+                font-size: 26px;
+            }
 
-    .main h1 {
-        font-size: 26px;
-    }
+            .main p {
+                font-size: 14px;
+            }
 
-    .main p {
-        font-size: 14px;
-    }
+            /* ✅ Fix "Select PDF Files" button */
+            .upload-btn {
+                width: 100%;
+                padding: 14px 0;
+                font-size: 17px;
+                max-width: 320px;
+                margin: 0 auto;
+            }
 
-    /* ✅ Fix Select PDF File button */
-    .upload-btn {
-        width: 100%;
-        padding: 14px 0;
-        font-size: 17px;
-        max-width: 320px;
-        margin: 0 auto;
-    }
+            .merge-btn {
+                width: 100%;
+                padding: 14px;
+                font-size: 18px;
+                max-width: 320px;
+                margin: 20px auto 0 auto;
+            }
 
-    .split-btn {
-        width: 100%;
-        padding: 14px;
-        font-size: 18px;
-        max-width: 320px;
-        margin: 20px auto 0 auto;
-    }
-
-    .range-box input {
-        width: 45%;
-        padding: 10px;
-        margin-bottom: 10px;
-        font-size: 16px;
-    }
-}
+            #file-list div {
+                font-size: 14px;
+            }
+        }
 
     </style>
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ✅ NAVBAR -->
     <div class="navbar">
         <div class="logo">pdf_<span>merger</span></div>
-
         <div class="nav-links">
             <a href="/">MERGE PDF</a>
             <a href="/split_page">SPLIT PDF</a>
         </div>
     </div>
 
+    <!-- ✅ MAIN SECTION -->
     <div class="main">
         <h1>Merge PDF Files</h1>
         <p>Select or drag multiple PDF files to merge into one.</p>
 
+        <!-- ✅ Select PDF button -->
         <label for="fileInput">
             <div class="upload-btn">Select PDF Files</div>
         </label>
-
         <input type="file" id="fileInput" multiple style="display:none;" onchange="handleFiles(this.files)">
 
         <div id="file-list"></div>
 
+        <!-- ✅ Merge Form -->
         <form action="/merge" method="post" enctype="multipart/form-data">
             <div id="hidden-inputs"></div>
             <button type="submit" class="merge-btn">Merge PDF</button>
         </form>
     </div>
 
+    <!-- ✅ Correct JS for multiple file uploading -->
     <script>
         function handleFiles(files) {
             const list = document.getElementById("file-list");
             const hiddenInputs = document.getElementById("hidden-inputs");
 
             for (let file of files) {
+
+                // Show file name
                 const div = document.createElement("div");
                 div.textContent = "📄 " + file.name;
                 list.appendChild(div);
 
+                // Add file to hidden input using DataTransfer
                 const input = document.createElement("input");
                 input.type = "file";
                 input.name = "pdfs";
-                input.files = files;
                 input.style.display = "none";
+
+                const data = new DataTransfer();
+                data.items.add(file);
+                input.files = data.files;
+
                 hiddenInputs.appendChild(input);
             }
         }
