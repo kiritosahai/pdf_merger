@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>pdf_splitter</title>
+    <title>pdf_merger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -9,7 +9,8 @@
             font-family: 'Segoe UI', sans-serif;
             background: #f5f6fa;
         }
-
+        
+        /* NAVBAR */
         .navbar {
             width: 100%;
             height: 60px;
@@ -60,6 +61,7 @@
         .main p {
             font-size: 18px;
             color: #555;
+            margin-top: -10px;
         }
 
         .upload-btn {
@@ -71,7 +73,8 @@
             border: none;
             cursor: pointer;
             margin-top: 40px;
-            transition: .2s;
+            display: inline-block;
+            transition: 0.2s;
         }
 
         .upload-btn:hover {
@@ -79,7 +82,13 @@
             transform: scale(1.03);
         }
 
-        .split-btn {
+        #file-list div {
+            margin-top: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .merge-btn {
             margin-top: 30px;
             padding: 14px 50px;
             background: #2ecc71;
@@ -88,10 +97,10 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
-            transition: .2s;
+            transition: 0.2s;
         }
 
-        .split-btn:hover {
+        .merge-btn:hover {
             background: #27ae60;
             transform: scale(1.03);
         }
@@ -155,6 +164,7 @@
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <div class="navbar">
         <div class="logo">pdf_<span>merger</span></div>
 
@@ -165,26 +175,42 @@
     </div>
 
     <div class="main">
-        <h1>Split PDF</h1>
-        <p>Select a PDF and split it into separate pages.</p>
+        <h1>Merge PDF Files</h1>
+        <p>Select or drag multiple PDF files to merge into one.</p>
 
-        <form action="/split" method="post" enctype="multipart/form-data">
+        <label for="fileInput">
+            <div class="upload-btn">Select PDF Files</div>
+        </label>
 
-            <label for="splitInput">
-                <div class="upload-btn">Select PDF File</div>
-            </label>
-            <input type="file" id="splitInput" name="pdf" style="display:none;" required>
+        <input type="file" id="fileInput" multiple style="display:none;" onchange="handleFiles(this.files)">
 
-            <br><br>
-            <h3>Split Options</h3>
-            <label>
-                <input type="radio" name="split_type" value="all" checked>
-                Split every page
-            </label>
+        <div id="file-list"></div>
 
-            <button class="split-btn" type="submit">Split PDF</button>
+        <form action="/merge" method="post" enctype="multipart/form-data">
+            <div id="hidden-inputs"></div>
+            <button type="submit" class="merge-btn">Merge PDF</button>
         </form>
     </div>
+
+    <script>
+        function handleFiles(files) {
+            const list = document.getElementById("file-list");
+            const hiddenInputs = document.getElementById("hidden-inputs");
+
+            for (let file of files) {
+                const div = document.createElement("div");
+                div.textContent = "📄 " + file.name;
+                list.appendChild(div);
+
+                const input = document.createElement("input");
+                input.type = "file";
+                input.name = "pdfs";
+                input.files = files;
+                input.style.display = "none";
+                hiddenInputs.appendChild(input);
+            }
+        }
+    </script>
 
 </body>
 </html>
