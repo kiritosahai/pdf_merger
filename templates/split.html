@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>pdf_splitter</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
@@ -95,6 +95,62 @@
             background: #27ae60;
             transform: scale(1.03);
         }
+        /* ✅ Mobile Layout Optimization */
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        margin-left: 10px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        margin-right: 10px;
+    }
+
+    .main {
+        margin-top: 40px;
+        padding: 0 15px;
+    }
+
+    .main h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .main p {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 0 5px;
+    }
+
+    .upload-btn,
+    .merge-btn,
+    .split-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    .range-box input {
+        width: 48%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    #file-list div {
+        font-size: 14px;
+    }
+}
+
     </style>
 </head>
 <body>
