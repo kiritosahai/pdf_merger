@@ -108,7 +108,7 @@
 @media (max-width: 600px) {
 
     .navbar {
-        padding: 0 20px;
+        padding: 0 15px;
     }
 
     .logo {
@@ -116,12 +116,12 @@
     }
 
     .nav-links {
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .nav-links a {
         font-size: 13px;
-        margin-right: 10px;
+        margin-right: 8px;
     }
 
     .main {
@@ -131,32 +131,34 @@
 
     .main h1 {
         font-size: 26px;
-        line-height: 32px;
     }
 
     .main p {
         font-size: 14px;
-        line-height: 20px;
-        padding: 0 5px;
     }
 
-    .upload-btn,
-    .merge-btn,
+    /* ✅ Fix Select PDF File button */
+    .upload-btn {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 17px;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
     .split-btn {
         width: 100%;
-        padding: 16px;
+        padding: 14px;
         font-size: 18px;
+        max-width: 320px;
+        margin: 20px auto 0 auto;
     }
 
     .range-box input {
-        width: 48%;
+        width: 45%;
         padding: 10px;
-        font-size: 16px;
         margin-bottom: 10px;
-    }
-
-    #file-list div {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
