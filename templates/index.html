@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>pdf_merger</title>
-
+    <title>pdf_splitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
@@ -10,7 +10,6 @@
             background: #f5f6fa;
         }
 
-        /* NAVBAR */
         .navbar {
             width: 100%;
             height: 60px;
@@ -61,7 +60,6 @@
         .main p {
             font-size: 18px;
             color: #555;
-            margin-top: -10px;
         }
 
         .upload-btn {
@@ -73,8 +71,7 @@
             border: none;
             cursor: pointer;
             margin-top: 40px;
-            display: inline-block;
-            transition: 0.2s;
+            transition: .2s;
         }
 
         .upload-btn:hover {
@@ -82,13 +79,7 @@
             transform: scale(1.03);
         }
 
-        #file-list div {
-            margin-top: 10px;
-            color: #333;
-            font-size: 16px;
-        }
-
-        .merge-btn {
+        .split-btn {
             margin-top: 30px;
             padding: 14px 50px;
             background: #2ecc71;
@@ -97,19 +88,73 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: .2s;
         }
 
-        .merge-btn:hover {
+        .split-btn:hover {
             background: #27ae60;
             transform: scale(1.03);
         }
+        /* ✅ Mobile Layout Optimization */
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        margin-left: 10px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        margin-right: 10px;
+    }
+
+    .main {
+        margin-top: 40px;
+        padding: 0 15px;
+    }
+
+    .main h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .main p {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 0 5px;
+    }
+
+    .upload-btn,
+    .merge-btn,
+    .split-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    .range-box input {
+        width: 48%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    #file-list div {
+        font-size: 14px;
+    }
+}
 
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <div class="navbar">
         <div class="logo">pdf_<span>merger</span></div>
 
@@ -120,42 +165,26 @@
     </div>
 
     <div class="main">
-        <h1>Merge PDF Files</h1>
-        <p>Select or drag multiple PDF files to merge into one.</p>
+        <h1>Split PDF</h1>
+        <p>Select a PDF and split it into separate pages.</p>
 
-        <label for="fileInput">
-            <div class="upload-btn">Select PDF Files</div>
-        </label>
+        <form action="/split" method="post" enctype="multipart/form-data">
 
-        <input type="file" id="fileInput" multiple style="display:none;" onchange="handleFiles(this.files)">
+            <label for="splitInput">
+                <div class="upload-btn">Select PDF File</div>
+            </label>
+            <input type="file" id="splitInput" name="pdf" style="display:none;" required>
 
-        <div id="file-list"></div>
+            <br><br>
+            <h3>Split Options</h3>
+            <label>
+                <input type="radio" name="split_type" value="all" checked>
+                Split every page
+            </label>
 
-        <form action="/merge" method="post" enctype="multipart/form-data">
-            <div id="hidden-inputs"></div>
-            <button type="submit" class="merge-btn">Merge PDF</button>
+            <button class="split-btn" type="submit">Split PDF</button>
         </form>
     </div>
-
-    <script>
-        function handleFiles(files) {
-            const list = document.getElementById("file-list");
-            const hiddenInputs = document.getElementById("hidden-inputs");
-
-            for (let file of files) {
-                const div = document.createElement("div");
-                div.textContent = "📄 " + file.name;
-                list.appendChild(div);
-
-                const input = document.createElement("input");
-                input.type = "file";
-                input.name = "pdfs";
-                input.files = files;
-                input.style.display = "none";
-                hiddenInputs.appendChild(input);
-            }
-        }
-    </script>
 
 </body>
 </html>
