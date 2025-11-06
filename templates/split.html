@@ -119,6 +119,11 @@
             background: #27ae60;
         }
 
+        /* ✅ Button spacing class (IMPORTANT FIX) */
+        .button-gap {
+            margin-top: 25px;
+        }
+
         /* ✅ MOBILE FIXES */
         @media (max-width: 600px) {
 
@@ -144,8 +149,8 @@
                 font-size: 17px;
             }
 
-            .split-btn {
-                margin-top: 20px !important; /* ✅ spacing between buttons */
+            .button-gap {
+                margin-top: 20px !important; /* ✅ spacing on mobile */
             }
         }
 
@@ -173,18 +178,19 @@
         <form action="/split" method="post" enctype="multipart/form-data">
 
             <!-- ✅ Select PDF Button -->
-            <label for="splitInput">
-                <button type="button" class="upload-btn">Select PDF File</button>
-            </label>
+            <button type="button" class="upload-btn"
+                    onclick="document.getElementById('splitInput').click();">
+                Select PDF File
+            </button>
 
             <!-- ✅ Hidden File Input -->
-            <input type="file" id="splitInput" name="pdf" required style="display:none;" onchange="highlight()">
+            <input type="file" id="splitInput" name="pdf" required style="display:none;">
 
             <!-- ✅ Hidden split type -->
             <input type="hidden" name="split_type" value="all">
 
-            <!-- ✅ Split Button -->
-            <button class="split-btn" type="submit">Split PDF</button>
+            <!-- ✅ Split PDF Button -->
+            <button class="split-btn button-gap" type="submit">Split PDF</button>
 
         </form>
     </div>
