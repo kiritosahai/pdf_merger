@@ -8,7 +8,7 @@
 
     <style>
 
-        /* ✅ Prevent sideways movement & overflow */
+        /* ✅ Prevent sideways movement */
         html, body {
             overflow-x: hidden;
             max-width: 100%;
@@ -18,7 +18,7 @@
             background: #f5f6fa;
         }
 
-        /* ✅ NAVBAR (same as merge page) */
+        /* ✅ NAVBAR (Same as merge page) */
         .navbar {
             width: 100%;
             height: 60px;
@@ -27,7 +27,7 @@
             align-items: center;
             padding: 0 20px;   /* ✅ FIXED */
             border-bottom: 1px solid #ddd;
-            box-sizing: border-box;   /* ✅ Prevents overflow */
+            box-sizing: border-box;
         }
 
         .logo {
@@ -44,7 +44,7 @@
             margin-left: 25px;
             display: flex;
             gap: 15px;
-            flex-wrap: wrap;  /* ✅ Prevents overflow on mobile */
+            flex-wrap: wrap; /* ✅ prevents overflow */
         }
 
         .nav-links a {
@@ -115,7 +115,7 @@
             transform: scale(1.03);
         }
 
-        /* ✅ Mobile Responsive Fixes */
+        /* ✅ Mobile Fixes */
         @media (max-width: 600px) {
 
             .logo {
@@ -129,7 +129,6 @@
 
             .nav-links a {
                 font-size: 12px;
-                margin: 0;
             }
 
             .main h1 {
@@ -140,22 +139,13 @@
                 font-size: 14px;
             }
 
-            /* ✅ Fit Select button on mobile */
-            .upload-btn {
-                width: 100%;
-                padding: 14px 0;
-                font-size: 17px;
-                max-width: 320px;
-                margin: 0 auto;
-            }
-
-            /* ✅ Fit Split button on mobile */
+            .upload-btn,
             .split-btn {
                 width: 100%;
-                padding: 14px;
-                font-size: 18px;
+                padding: 14px 0;
                 max-width: 320px;
-                margin: 20px auto 0 auto;
+                font-size: 17px;
+                margin: 0 auto;
             }
         }
 
@@ -174,26 +164,21 @@
         </div>
     </div>
 
-    <!-- ✅ MAIN CONTENT -->
+    <!-- ✅ MAIN SECTION -->
     <div class="main">
         <h1>Split PDF</h1>
-        <p>Select a PDF and split it into separate pages.</p>
+        <p>Select a PDF and split it into individual pages.</p>
 
         <form action="/split" method="post" enctype="multipart/form-data">
 
-            <!-- ✅ Select File Button -->
+            <!-- ✅ Select PDF Button -->
             <label for="splitInput">
                 <div class="upload-btn">Select PDF File</div>
             </label>
             <input type="file" id="splitInput" name="pdf" style="display:none;" required>
 
-            <br><br>
-            <h3>Split Options</h3>
-
-            <label>
-                <input type="radio" name="split_type" value="all" checked>
-                Split every page
-            </label>
+            <!-- ✅ REMOVE SPLIT OPTIONS (as you requested) -->
+            <input type="hidden" name="split_type" value="all">
 
             <!-- ✅ Split Button -->
             <button class="split-btn" type="submit">Split PDF</button>
