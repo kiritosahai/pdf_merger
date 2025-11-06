@@ -2,22 +2,32 @@
 <html>
 <head>
     <title>pdf_splitter</title>
+
+    <!-- ✅ Mobile scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-        body {
+
+        /* ✅ Prevent sideways movement & overflow */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
             margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', sans-serif;
             background: #f5f6fa;
         }
 
+        /* ✅ NAVBAR (same as merge page) */
         .navbar {
             width: 100%;
             height: 60px;
             background: white;
             display: flex;
             align-items: center;
-            padding: 0 40px;
+            padding: 0 20px;   /* ✅ FIXED */
             border-bottom: 1px solid #ddd;
+            box-sizing: border-box;   /* ✅ Prevents overflow */
         }
 
         .logo {
@@ -31,11 +41,13 @@
         }
 
         .nav-links {
-            margin-left: 40px;
+            margin-left: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;  /* ✅ Prevents overflow on mobile */
         }
 
         .nav-links a {
-            margin-right: 25px;
             text-decoration: none;
             font-size: 15px;
             color: #333;
@@ -46,9 +58,11 @@
             color: #e63946;
         }
 
+        /* ✅ MAIN CONTENT */
         .main {
             text-align: center;
             margin-top: 80px;
+            padding: 0 15px;
         }
 
         .main h1 {
@@ -62,6 +76,7 @@
             color: #555;
         }
 
+        /* ✅ Select File Button */
         .upload-btn {
             background: #e63946;
             color: white;
@@ -72,6 +87,8 @@
             cursor: pointer;
             margin-top: 40px;
             transition: .2s;
+            display: inline-block;
+            max-width: 100%;
         }
 
         .upload-btn:hover {
@@ -79,6 +96,7 @@
             transform: scale(1.03);
         }
 
+        /* ✅ Split Button */
         .split-btn {
             margin-top: 30px;
             padding: 14px 50px;
@@ -89,72 +107,64 @@
             font-size: 18px;
             cursor: pointer;
             transition: .2s;
+            max-width: 100%;
         }
 
         .split-btn:hover {
             background: #27ae60;
             transform: scale(1.03);
         }
-        /* ✅ Mobile Layout Optimization */
-@media (max-width: 600px) {
 
-    .navbar {
-        padding: 0 20px;
-    }
+        /* ✅ Mobile Responsive Fixes */
+        @media (max-width: 600px) {
 
-    .logo {
-        font-size: 20px;
-    }
+            .logo {
+                font-size: 20px;
+            }
 
-    .nav-links {
-        margin-left: 10px;
-    }
+            .nav-links {
+                margin-left: 10px;
+                gap: 8px;
+            }
 
-    .nav-links a {
-        font-size: 13px;
-        margin-right: 10px;
-    }
+            .nav-links a {
+                font-size: 12px;
+                margin: 0;
+            }
 
-    .main {
-        margin-top: 40px;
-        padding: 0 15px;
-    }
+            .main h1 {
+                font-size: 26px;
+            }
 
-    .main h1 {
-        font-size: 26px;
-        line-height: 32px;
-    }
+            .main p {
+                font-size: 14px;
+            }
 
-    .main p {
-        font-size: 14px;
-        line-height: 20px;
-        padding: 0 5px;
-    }
+            /* ✅ Fit Select button on mobile */
+            .upload-btn {
+                width: 100%;
+                padding: 14px 0;
+                font-size: 17px;
+                max-width: 320px;
+                margin: 0 auto;
+            }
 
-    .upload-btn,
-    .merge-btn,
-    .split-btn {
-        width: 100%;
-        padding: 16px;
-        font-size: 18px;
-    }
-
-    .range-box input {
-        width: 48%;
-        padding: 10px;
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    #file-list div {
-        font-size: 14px;
-    }
-}
+            /* ✅ Fit Split button on mobile */
+            .split-btn {
+                width: 100%;
+                padding: 14px;
+                font-size: 18px;
+                max-width: 320px;
+                margin: 20px auto 0 auto;
+            }
+        }
 
     </style>
 </head>
+
 <body>
 
+    <!-- ✅ NAVBAR -->
     <div class="navbar">
         <div class="logo">pdf_<span>merger</span></div>
 
@@ -164,12 +174,14 @@
         </div>
     </div>
 
+    <!-- ✅ MAIN CONTENT -->
     <div class="main">
         <h1>Split PDF</h1>
         <p>Select a PDF and split it into separate pages.</p>
 
         <form action="/split" method="post" enctype="multipart/form-data">
 
+            <!-- ✅ Select File Button -->
             <label for="splitInput">
                 <div class="upload-btn">Select PDF File</div>
             </label>
@@ -177,12 +189,15 @@
 
             <br><br>
             <h3>Split Options</h3>
+
             <label>
                 <input type="radio" name="split_type" value="all" checked>
                 Split every page
             </label>
 
+            <!-- ✅ Split Button -->
             <button class="split-btn" type="submit">Split PDF</button>
+
         </form>
     </div>
 
