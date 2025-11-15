@@ -1,53 +1,65 @@
-📄 pdf_merger
+📄 PDF Merger & Splitter
 
-A lightweight and user-friendly web application for merging and splitting PDF files.
+A modern, lightweight web application for merging and splitting PDF files — fast, clean, and fully browser-based.
 
+<p align="center"> <img src="https://img.shields.io/badge/Flask-Backend-blue"> <img src="https://img.shields.io/badge/HTML-CSS-JS-Frontend-green"> <img src="https://img.shields.io/badge/PyPDF2-PDF_Engine-orange"> <img src="https://img.shields.io/badge/Status-Live-brightgreen"> </p>
 🔗 Live Demo
 
 👉 https://pdf-merge-split.onrender.com/
 
-🎯 Purpose
+🎯 Overview
 
-The purpose of this project is to provide a simple, fast, and accessible tool that allows users to:
+PDF Merger & Splitter provides a seamless way to:
+✔ Merge multiple PDF files into one
+✔ Split a PDF into individual pages
+✔ Download outputs instantly
+✔ Use completely online — no installation needed
 
-Merge multiple PDF files into one
+The tool is designed with a clean UI, mobile responsiveness, and efficient backend processing. Perfect for students, professionals, and everyday users.
 
-Split a single PDF into separate pages
+🖼️ Screenshots (Add yours later)
 
-Use these features directly in a browser without installing extra software
+Replace the image links with your own screenshots.
 
-The app is designed with a clean interface, smooth navigation, mobile-friendly layout, and efficient backend processing.
+🔹 Merge PDFs
+          <img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/d5d125c7-3504-43c1-8579-32f8fd9536f0" />
+
+
+🔹 Split PDFs
+          <img width="1919" height="909" alt="image" src="https://github.com/user-attachments/assets/f0b217dd-743d-4834-9d41-1f13c2311b19" />
 
 🚀 Features
-📌 Merge PDFs
+✔ PDF Merge
 
-Upload multiple PDF files
+Upload multiple PDFs
 
-Combine them into one document
+Rearranged automatically
 
-Instant download
+Download merged file instantly
 
-📌 Split PDFs
+✔ PDF Split
 
-Upload one PDF
+Upload a single PDF
 
-Split into individual pages
+Automatically extract each page
 
-Download pages individually or as a ZIP file
+Download individually OR as a ZIP file
 
-📌 UI / UX
+✔ UI / UX
 
-Simple and clean design
+Minimal & modern interface
 
-Fully responsive on mobile, tablet, and desktop
+Mobile-friendly
 
-Easy navigation
+Fast navigation
 
-📌 File Handling
+✔ File Handling
 
 Temporary file storage
 
-Automatic cleanup after processing
+Auto-cleanup after processing
+
+Secure, isolated processing
 
 🛠️ Tech Stack
 Frontend
@@ -60,37 +72,63 @@ JavaScript
 
 Backend
 
-Flask (Python)
+Python (Flask)
 
 PyPDF2
 
-Zipfile
+Zipfile module
 
 Deployment
 
-Render (cloud hosting)
+Render (Cloud Hosting)
 
 📂 Project Structure
 /templates
     ├── index.html       # Merge page
     ├── split.html       # Split page
-app.py                   # Backend logic
-temp_files/              # Temporary PDF storage
+/static
+    ├── styles.css       # Optional - UI styling
+app.py                   # Main backend server
+temp_files/              # Temporary file storage
 README.md
 
 ▶️ Run Locally
-1️⃣ Install dependencies:
+1️⃣ Clone the repo
+git clone https://github.com/your-username/pdf-merger-splitter.git
+cd pdf-merger-splitter
+
+2️⃣ Install dependencies
 pip install flask pypdf2
 
-2️⃣ Run the server:
+3️⃣ Run the server
 python app.py
 
-3️⃣ Open in browser:
+4️⃣ Open in your browser
 http://localhost:5000
 
-🌐 Live Project
+📦 Future Enhancements (Optional Section)
 
-👉 https://pdf-merge-split.onrender.com/
+🔒 Add login system for personal file history
+
+📚 Add PDF compression
+
+✏️ Add rotate/delete/reorder pages
+
+🌙 Add dark mode
+
+📤 Upload via drag-and-drop
+
+🤝 Contributing
+
+Contributions are always welcome!
+
+Fork the repo
+
+Create a new branch
+
+Commit your changes
+
+Open a Pull Request
 
 👥 Team Members
 Name	Enrollment No.
