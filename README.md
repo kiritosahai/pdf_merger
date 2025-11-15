@@ -1,51 +1,53 @@
 📄 pdf_merger
 
 A lightweight and user-friendly web application for merging and splitting PDF files.
-Live Demo:
+
+🔗 Live Demo
+
 👉 https://pdf-merge-split.onrender.com/
 
 🎯 Purpose
 
-The goal of this project is to provide a simple, fast, and accessible tool that allows users to:
+The purpose of this project is to provide a simple, fast, and accessible tool that allows users to:
 
-Merge multiple PDF files into one.
+Merge multiple PDF files into one
 
-Split a single PDF into separate pages.
+Split a single PDF into separate pages
 
-Perform these tasks easily from a browser without installing any software.
+Use these features directly in a browser without installing any software
 
-The application is designed with a clean interface, mobile responsiveness, and quick processing using an efficient backend.
+The app is designed with a clean interface, smooth navigation, mobile-friendly layout, and efficient backend processing.
 
 🚀 Features
 📌 Merge PDFs
 
 Upload multiple PDF files
 
-Combine them into a single merged document
+Combine them into one document
 
-Instant download
+Download the result instantly
 
 📌 Split PDFs
 
 Upload one PDF
 
-Split it into individual pages
+Split into individual pages
 
 Download pages individually or as a ZIP file
 
 📌 UI / UX
 
-Clean and simple design
+Simple and clean interface
 
-Fully responsive (works on mobile, tablet, and desktop)
+Fully responsive (mobile, tablet, desktop)
 
-Smooth navigation between Merge and Split pages
+Easy navigation between merge and split pages
 
 📌 File Handling
 
 Temporary file storage
 
-Automatic cleanup after operations
+Automatic cleanup after processing
 
 🛠️ Tech Stack
 Frontend
@@ -54,42 +56,36 @@ HTML5
 
 CSS3
 
-JavaScript (for file handling on UI)
+JavaScript
 
 Backend
 
-Flask (Python framework)
+Flask (Python)
 
-PyPDF2 (for PDF merging and splitting)
+PyPDF2 (PDF merge/split operations)
 
-Zipfile (for packaging multiple pages)
+Zipfile (for exporting multi-page splits)
 
 Deployment
 
-Render (for hosting the full-stack application)
+Render (cloud hosting)
 
 📂 Project Structure
 /templates
-    ├── index.html      # Merge PDF page
-    ├── split.html      # Split PDF page
-app.py                  # Main backend logic
-temp_files/             # Temporary storage for PDF processing
+    ├── index.html       # Merge page
+    ├── split.html       # Split page
+app.py                   # Backend logic
+temp_files/              # Temporary PDF storage
 README.md
 
 ▶️ Run Locally
-
-Install dependencies:
-
+1️⃣ Install dependencies:
 pip install flask pypdf2
 
-
-Run the server:
-
+2️⃣ Run the server:
 python app.py
 
-
-Open in browser:
-
+3️⃣ Open in browser:
 http://localhost:5000
 
 🌐 Live Project
