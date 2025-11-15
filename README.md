@@ -14,7 +14,7 @@ Merge multiple PDF files into one
 
 Split a single PDF into separate pages
 
-Use these features directly in a browser without installing any software
+Use these features directly in a browser without installing extra software
 
 The app is designed with a clean interface, smooth navigation, mobile-friendly layout, and efficient backend processing.
 
@@ -25,7 +25,7 @@ Upload multiple PDF files
 
 Combine them into one document
 
-Download the result instantly
+Instant download
 
 📌 Split PDFs
 
@@ -37,11 +37,11 @@ Download pages individually or as a ZIP file
 
 📌 UI / UX
 
-Simple and clean interface
+Simple and clean design
 
-Fully responsive (mobile, tablet, desktop)
+Fully responsive on mobile, tablet, and desktop
 
-Easy navigation between merge and split pages
+Easy navigation
 
 📌 File Handling
 
@@ -62,9 +62,9 @@ Backend
 
 Flask (Python)
 
-PyPDF2 (PDF merge/split operations)
+PyPDF2
 
-Zipfile (for exporting multi-page splits)
+Zipfile
 
 Deployment
 
