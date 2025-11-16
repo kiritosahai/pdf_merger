@@ -2,7 +2,6 @@
 
 A modern, lightweight web application for merging and splitting PDF files — fast, clean, and fully browser-based.
 
-<p align="center"> <img src="https://img.shields.io/badge/Flask-Backend-blue"> <img src="https://img.shields.io/badge/HTML-CSS-JS-Frontend-green"> <img src="https://img.shields.io/badge/PyPDF2-PDF_Engine-orange"> <img src="https://img.shields.io/badge/Status-Live-brightgreen"> </p>
 🔗 Live Demo
 
 👉 https://pdf-merge-split.onrender.com/
